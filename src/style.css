@@ -28,3 +28,28 @@ article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section { 
     display:block;
 }
+
+header {
+	height: 10vh;
+	text-align: start;
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+	padding-left: 3vh;
+	font-size: 3vh;
+	background-color: aliceblue;
+}
+
+.general-content {
+	background-color: aquamarine;
+	height: 85vh;
+	width: 100%;
+}
+
+footer {
+	height: 5vh;
+	background-color: blanchedalmond;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
