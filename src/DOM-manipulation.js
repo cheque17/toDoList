@@ -54,5 +54,22 @@ function displayProjects (projectsArray) {
 }
 
 
+function createProjectDisplay () {
+  const generalWrapper = document.querySelector('.general-content');
 
-export { createSidebar }
+  const projectContainer = document.createElement('div')
+  projectContainer.setAttribute('class', 'project-container');
+
+  generalWrapper.appendChild(projectContainer);
+
+  const projectTitle = document.createElement('h2');
+  projectTitle.setAttribute('class', 'project-title');
+  projectTitle.textContent = "Project Title";
+
+  projectContainer.appendChild(projectTitle);
+
+}
+
+
+
+export { createSidebar, createProjectDisplay }

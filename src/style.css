@@ -53,6 +53,7 @@ header {
 	background-color: aliceblue;
 	height: 85vh;
 	width: 100%;
+	display: flex;
 }
 
 .general-content .sidebar{
@@ -89,6 +90,12 @@ ul li .options-icon {
 	height: 3vh;
 	width: 3vh;
 	object-fit: cover;
+}
+
+.general-content .project-container {
+	height: 100%;
+	width: 100%;
+	background-color: rgb(191, 199, 120);
 }
 
 footer {
