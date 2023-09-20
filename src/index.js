@@ -1,6 +1,6 @@
 import './style.css'
 import './toDoCreation'
-import {createProject, createToDo} from './toDoCreation'
+import {createProject} from './toDoCreation'
 import { createSidebar } from './DOM-manipulation'
 
 

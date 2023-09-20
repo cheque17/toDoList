@@ -1,4 +1,4 @@
-import Icon from './project.png';
+import Icon from './menu.png';
 
 
 function createSidebar (projectsArray) {
@@ -28,24 +28,23 @@ function createSidebar (projectsArray) {
 
 function displayProjects (projectsArray) {
   const list = document.querySelector('#projects-list');
-  const myIcon = new Image();
-  myIcon.src = Icon;
 
+  
   
   for (let i=0; i<projectsArray.length; i++) {
     let project = document.createElement('li');
-    let projectDiv = document.createElement('div');
-    projectDiv.setAttribute('class', 'project-name');
     
-
-    project.appendChild(projectDiv);
-    //projectDiv.appendChild(myIcon);
+    const myIcon = new Image();
+    myIcon.setAttribute('class', 'sdbar-icon')
+    myIcon.src = Icon;
 
     let projectTitle = document.createElement('span');
+    projectTitle.setAttribute('class', 'project-name');
     console.log(projectsArray[i]);
     projectTitle.textContent = projectsArray[i].projectName;
 
-    projectDiv.appendChild(projectTitle);
+    project.appendChild(myIcon)
+    project.appendChild(projectTitle);
     list.appendChild(project);
   }
 }
