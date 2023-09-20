@@ -29,21 +29,39 @@ footer,header,hgroup,menu,nav,section {
     display:block;
 }
 
+* {
+	list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 header {
 	height: 10vh;
 	text-align: start;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	box-sizing: border-box;
 	padding-left: 3vh;
 	font-size: 3vh;
-	background-color: aliceblue;
+	background-color: aquamarine;
 }
 
 .general-content {
-	background-color: aquamarine;
+	background-color: aliceblue;
 	height: 85vh;
 	width: 100%;
+}
+
+.general-content .sidebar{
+	background: rgb(5, 68, 104);
+	width: 15vw;
+	height: 100%;
+	padding: 20px 0;
+	transition: all 0.5s ease;
+	color: white;
 }
 
 footer {
