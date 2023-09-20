@@ -45,7 +45,7 @@ header {
 	justify-content: center;
 	box-sizing: border-box;
 	padding-left: 3vh;
-	font-size: 3vh;
+	font-size: 5vh;
 	background-color: aquamarine;
 }
 
@@ -56,12 +56,39 @@ header {
 }
 
 .general-content .sidebar{
-	background: rgb(5, 68, 104);
+	background: rgb(129, 209, 255);
 	width: 15vw;
 	height: 100%;
-	padding: 20px 0;
+	padding: 3vh 0 0 4vh;
 	transition: all 0.5s ease;
-	color: white;
+}
+
+.sidebar h2 {
+	font-size: 3vh;
+}
+
+.sidebar hr {
+	margin: 1vh 0 2vh;
+	color: black;
+	width: 80%;
+}
+
+
+ul li {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+ul li:nth-child(n+2) {
+	margin-top: 1vh;
+}
+
+ul li .sdbar-icon,
+ul li .options-icon {
+	height: 3vh;
+	width: 3vh;
+	object-fit: cover;
 }
 
 footer {

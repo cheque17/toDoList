@@ -1,4 +1,5 @@
 import Icon from './menu.png';
+import Option from './more.png';
 
 
 function createSidebar (projectsArray) {
@@ -27,26 +28,31 @@ function createSidebar (projectsArray) {
 }
 
 function displayProjects (projectsArray) {
-  const list = document.querySelector('#projects-list');
-
-  
+  const list = document.querySelector('#projects-list');  
   
   for (let i=0; i<projectsArray.length; i++) {
     let project = document.createElement('li');
     
-    const myIcon = new Image();
-    myIcon.setAttribute('class', 'sdbar-icon')
-    myIcon.src = Icon;
+    const myProjIcon = new Image();
+    myProjIcon.setAttribute('class', 'sdbar-icon')
+    myProjIcon.src = Icon;
 
     let projectTitle = document.createElement('span');
     projectTitle.setAttribute('class', 'project-name');
     console.log(projectsArray[i]);
     projectTitle.textContent = projectsArray[i].projectName;
 
-    project.appendChild(myIcon)
+    const myOptIcon = new Image();
+    myOptIcon.setAttribute('class', 'options-icon');
+    myOptIcon.src = Option;
+
+    project.appendChild(myProjIcon)
     project.appendChild(projectTitle);
+    project.appendChild(myOptIcon);
     list.appendChild(project);
   }
 }
+
+
 
 export { createSidebar }
