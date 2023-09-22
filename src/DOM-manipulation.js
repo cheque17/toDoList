@@ -54,7 +54,7 @@ function displayProjects (projectsArray) {
 }
 
 
-function createProjectDisplay () {
+function createProjectDisplay (projectObject) {
   const generalWrapper = document.querySelector('.general-content');
 
   const projectContainer = document.createElement('div')
@@ -64,9 +64,11 @@ function createProjectDisplay () {
 
   const projectTitle = document.createElement('h2');
   projectTitle.setAttribute('class', 'project-title');
-  projectTitle.textContent = "Project Title";
+  projectTitle.textContent = projectObject.projectName;
 
   projectContainer.appendChild(projectTitle);
+
+  
 
 }
 
