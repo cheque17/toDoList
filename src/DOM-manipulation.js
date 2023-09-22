@@ -32,6 +32,7 @@ function displayProjects (projectsArray) {
   
   for (let i=0; i<projectsArray.length; i++) {
     let project = document.createElement('li');
+    project.setAttribute('class', 'list-project')
     
     const myProjIcon = new Image();
     myProjIcon.setAttribute('class', 'sdbar-icon')
@@ -39,7 +40,6 @@ function displayProjects (projectsArray) {
 
     let projectTitle = document.createElement('span');
     projectTitle.setAttribute('class', 'project-name');
-    console.log(projectsArray[i]);
     projectTitle.textContent = projectsArray[i].projectName;
 
     const myOptIcon = new Image();
@@ -68,6 +68,10 @@ function createProjectDisplay () {
 
   projectContainer.appendChild(projectTitle);
 
+}
+
+function displayProjectInfoReceiver () {
+  
 }
 
 
