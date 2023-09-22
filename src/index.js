@@ -1,7 +1,7 @@
 import './style.css'
 import './toDoCreation'
 import {createProject} from './toDoCreation'
-import { createSidebar, createProjectDisplay } from './DOM-manipulation'
+import { createSidebar, createProjectDisplay, createTodoDisplay } from './DOM-manipulation'
 
 
 const projects = [];

@@ -68,14 +68,53 @@ function createProjectDisplay (projectObject) {
 
   projectContainer.appendChild(projectTitle);
 
+  const projectDescriptionContainer = document.createElement('div');
+  projectDescriptionContainer.setAttribute('class', 'description-container');
   
+  const projectDescription = document.createElement('p');
+  projectDescription.setAttribute('class', 'description');
+  projectDescription.innerText = projectObject.description;
+
+  projectDescriptionContainer.appendChild(projectDescription);
+  projectContainer.appendChild(projectDescriptionContainer);
+
+  const toDoList = document.createElement('div');
+  toDoList.setAttribute('class', 'list-display');
+  projectContainer.appendChild(toDoList);
+
+  createTodoDisplay(projectObject.getTasks())
 
 }
 
-function displayProjectInfoReceiver () {
-  
+function createTodoDisplay (tasksArray) {
+  let toDoList = document.querySelector('.list-display');
+  for (let i=0; i<tasksArray.length; i++) {
+    let taskContainer = document.createElement('div');
+    taskContainer.setAttribute('class', 'todo-container');
+
+    let todoTitle = document.createElement('h3');
+    todoTitle.setAttribute('class', 'todo-title');
+    todoTitle.innerText = tasksArray[i].title;
+
+    taskContainer.appendChild(todoTitle);
+
+    let todoDescription = document.createElement('p');
+    todoDescription.setAttribute('class', 'todo-description');
+    todoDescription.innerText = tasksArray[i].description;
+
+    taskContainer.appendChild(todoDescription);
+
+    let todoDueDate = document.createElement('p');
+    todoDueDate.setAttribute('class', 'todo-duedate');
+    todoDueDate.innerText = tasksArray[i].dueDate;
+
+    taskContainer.appendChild(todoDueDate);
+
+    toDoList.appendChild(taskContainer);
+    
+  }
 }
 
 
 
-export { createSidebar, createProjectDisplay }
+export { createSidebar, createProjectDisplay, createTodoDisplay }
