@@ -72,16 +72,12 @@ function createProjectDisplay (projectObject) {
   projectTitle.textContent = projectObject.projectName;
 
   projectInformation.appendChild(projectTitle);
-
-  const projectDescriptionContainer = document.createElement('div');
-  projectDescriptionContainer.setAttribute('class', 'description-container');
   
   const projectDescription = document.createElement('p');
   projectDescription.setAttribute('class', 'description');
   projectDescription.innerText = projectObject.description;
 
-  projectDescriptionContainer.appendChild(projectDescription);
-  projectInformation.appendChild(projectDescriptionContainer);
+  projectInformation.appendChild(projectDescription);
 
   const toDoList = document.createElement('div');
   toDoList.setAttribute('class', 'list-display');
