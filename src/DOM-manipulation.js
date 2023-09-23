@@ -79,9 +79,15 @@ function createProjectDisplay (projectObject) {
 
   projectInformation.appendChild(projectDescription);
 
-  const toDoList = document.createElement('div');
-  toDoList.setAttribute('class', 'list-display');
-  projectContainer.appendChild(toDoList);
+  const toDoListContainer = document.createElement('div');
+  toDoListContainer.setAttribute('class', 'list-display');
+  projectContainer.appendChild(toDoListContainer);
+
+  const listName = document.createElement('h2');
+  listName.setAttribute('clas', 'list-name');
+  listName.innerText = 'Tasks';
+
+  toDoListContainer.appendChild(listName);
 
   createTodoDisplay(projectObject.getTasks())
 

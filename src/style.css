@@ -108,10 +108,11 @@ ul li .options-icon {
 	border: 1px black solid;
 	padding: 5px 2vh 8px;
 	width: 92%;
-	margin-bottom: 5vw;
+	margin-bottom: 3vw;
 }
 
-.project-container .project-information h2 {
+.project-container .project-information h2, 
+.project-container .list-display h2 {
 	text-align: center;
   font-size: 4vh;
 }
@@ -124,7 +125,7 @@ ul li .options-icon {
 }
 
 .project-container .list-display .todo-container:nth-child(n + 2) {
-	margin-top: 2vh;
+	margin-top: 1vh;
 }	
 
 .project-container .list-display .todo-container {
