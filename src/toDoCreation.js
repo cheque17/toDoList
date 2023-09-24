@@ -10,7 +10,9 @@ const createProject = (function(projectName, description) {
 
   const getTasks = () => _tasks;
 
-  return {projectName, description, creationDate, addTask, getTasks}
+  let displayed;
+
+  return {projectName, description, creationDate, addTask, getTasks, displayed}
 });
 
 

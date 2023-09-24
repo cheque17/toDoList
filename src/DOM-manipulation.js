@@ -56,7 +56,7 @@ function createFullSideBar (projectsArray) {
 }
 
 
-function createProjectDisplay (projectObject) {
+function createProjectContainer (projectObject) {
   const generalWrapper = document.querySelector('.general-content');
 
   const projectContainer = document.createElement('div')
@@ -90,9 +90,6 @@ function createProjectDisplay (projectObject) {
   listName.innerText = 'Tasks';
 
   toDoListContainer.appendChild(listName);
-
-  createTodoDisplay(projectObject.getTasks())
-
 }
 
 function createTodoDisplay (tasksArray) {
@@ -124,6 +121,27 @@ function createTodoDisplay (tasksArray) {
   }
 }
 
+function createFullProjectDisplay (projectObject) {
+  createProjectContainer(projectObject);
+  createTodoDisplay(projectObject.getTasks());
+  projectObject.displayed = 1;
+}
+
+function findProjectDisplayed (projectsArray) {
+  for (let i = 0; i <projectsArray.length; i++) {
+    if (projectsArray[i].displayed === 1) {
+      return (i);
+    }
+  }
+}
+
+function detachCurrentProject () {
+  const generalWrapper = document.querySelector('.general-content');
+  const projectContainer = document.querySelector('.project-container');
+
+  generalWrapper.removeChild(projectContainer);
+
+}
 
 
-export { createFullSideBar, createProjectDisplay };
+export { createFullSideBar, createFullProjectDisplay, detachCurrentProject };
