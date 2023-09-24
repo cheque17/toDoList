@@ -1,7 +1,7 @@
 import './style.css'
 import './toDoCreation'
 import {createProject} from './toDoCreation'
-import { createSidebar, createProjectDisplay, createTodoDisplay } from './DOM-manipulation'
+import { createFullSideBar, createProjectDisplay } from './DOM-manipulation'
 
 
 const projects = [];
@@ -22,7 +22,7 @@ projects[1].addTask('Clean my room', 'Fold my clothes, clean pc, take out trash'
 projects[2].addTask('Third stuff to do', 'Fold my clothes, clean pc, take out trash', '21/4/24', 'low');
 
 
-createSidebar(projects);
+createFullSideBar(projects);
 createProjectDisplay(projects[0]);
 
 const sideBarOptions = document.querySelectorAll('.list-project');

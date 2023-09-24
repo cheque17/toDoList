@@ -2,7 +2,7 @@ import Icon from './menu.png';
 import Option from './more.png';
 
 
-function createSidebar (projectsArray) {
+function createSidebar () {
   const generalContent = document.querySelector('.general-content');
 
   const sideBar = document.createElement('div');
@@ -22,9 +22,6 @@ function createSidebar (projectsArray) {
   listedProjects.setAttribute('id', 'projects-list');
 
   sideBar.appendChild(listedProjects);
-
-  displayProjects(projectsArray);
-
 }
 
 function displayProjects (projectsArray) {
@@ -51,6 +48,11 @@ function displayProjects (projectsArray) {
     project.appendChild(myOptIcon);
     list.appendChild(project);
   }
+}
+
+function createFullSideBar (projectsArray) {
+  createSidebar();
+  displayProjects(projectsArray);
 }
 
 
@@ -124,4 +126,4 @@ function createTodoDisplay (tasksArray) {
 
 
 
-export { createSidebar, createProjectDisplay, createTodoDisplay }
+export { createFullSideBar, createProjectDisplay };
