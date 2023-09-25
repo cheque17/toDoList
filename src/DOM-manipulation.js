@@ -62,13 +62,13 @@ function createAddButton (area) {
 
   if (area === 'sidebar'){
     let sideBar = document.querySelector('.sidebar');
+    buttonContainer.setAttribute('id', 'add-project')
     sideBar.appendChild(buttonContainer)
   } else {
     let project = document.querySelector('.project-container');
+    buttonContainer.setAttribute('id', 'add-task')
     project.appendChild(buttonContainer)
   }
-  
-
 }
 
 function createFullSideBar (projectsArray) {

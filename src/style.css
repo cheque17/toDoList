@@ -93,6 +93,11 @@ ul li .options-icon {
 	object-fit: cover;
 }
 
+ul li,
+.button-container {
+	cursor: grab;
+}
+
 .general-content .sidebar .button-container, 
 .general-content .project-container .button-container {
 	position: absolute;
