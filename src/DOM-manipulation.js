@@ -1,6 +1,6 @@
 import Icon from './menu.png';
 import Option from './more.png';
-
+import Add from './add.png';
 
 function createSidebar () {
   const generalContent = document.querySelector('.general-content');
@@ -50,9 +50,31 @@ function displayProjects (projectsArray) {
   }
 }
 
+function createAddButton (area) {
+  const buttonContainer = document.createElement('div');
+  buttonContainer.setAttribute('class', 'button-container');
+  
+  const addImg = new Image();
+  addImg.setAttribute('class', 'add-img');
+  addImg.src = Add;
+
+  buttonContainer.appendChild(addImg);
+
+  if (area === 'sidebar'){
+    let sideBar = document.querySelector('.sidebar');
+    sideBar.appendChild(buttonContainer)
+  } else {
+    let project = document.querySelector('.project-container');
+    project.appendChild(buttonContainer)
+  }
+  
+
+}
+
 function createFullSideBar (projectsArray) {
   createSidebar();
   displayProjects(projectsArray);
+  createAddButton('sidebar');
 }
 
 
@@ -124,7 +146,7 @@ function createTodoDisplay (tasksArray) {
 function createFullProjectDisplay (projectObject) {
   createProjectContainer(projectObject);
   createTodoDisplay(projectObject.getTasks());
-  projectObject.displayed = 1;
+  createAddButton('project')
 }
 
 function findProjectDisplayed (projectsArray) {

@@ -62,6 +62,7 @@ header {
 	height: 100%;
 	padding: 3vh 0 0 4vh;
 	transition: all 0.5s ease;
+	position: relative;
 }
 
 .sidebar h2 {
@@ -92,6 +93,19 @@ ul li .options-icon {
 	object-fit: cover;
 }
 
+.general-content .sidebar .button-container, 
+.general-content .project-container .button-container {
+	position: absolute;
+	bottom: 2vh;
+	right: 2vh;
+}
+
+.general-content .sidebar .button-container .add-img,
+.general-content .project-container .button-container .add-img {
+ object-fit: contain;
+ width: 4vh;
+}
+
 .general-content .project-container {
 	height: 100%;
 	width: 100%;
@@ -101,6 +115,7 @@ ul li .options-icon {
 	align-items: center;
 	justify-content: flex-start;
 	padding-top: 4vh;
+	position: relative;
 }
 
 .project-container .project-information {
