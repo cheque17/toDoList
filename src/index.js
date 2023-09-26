@@ -1,7 +1,7 @@
 import './style.css'
 import './toDoCreation'
 import {createProject} from './toDoCreation'
-import { createFullSideBar, createFullProjectDisplay, detachCurrentProject, createAddProjectCard } from './DOM-manipulation'
+import { createFullSideBar, createFullProjectDisplay, detachCurrentProject, createAddProjectCard, createAddTodoCard } from './DOM-manipulation'
 
 
 const projects = [];
@@ -42,6 +42,11 @@ sideBarOptions.forEach ((sideBarOption) => {
 const addProjectButton = document.querySelector('#add-project');
 addProjectButton.addEventListener('click', ()=>{
   createAddProjectCard()
+})
+
+const addTodoButton = document.querySelector('#add-task');
+addTodoButton.addEventListener('click', ()=> {
+  createAddTodoCard();
 })
 
 

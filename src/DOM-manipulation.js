@@ -166,7 +166,7 @@ const createPopUpFrame = ()=>{
   body.appendChild(popUpContainer)
 }
 
-const createInfoRetriever = (infoRequested,)=>{
+const createInfoRetriever = (infoRequested, inputType = 'text')=>{
   const container = document.querySelector('.collecter-container');
 
   const questionContainer = document.createElement('div');
@@ -177,6 +177,10 @@ const createInfoRetriever = (infoRequested,)=>{
 
   const answerInput = document.createElement('input');
   answerInput.setAttribute('class', 'answer');
+
+  if (inputType !== 'text') {
+    answerInput.setAttribute('type', `${inputType}`)
+  }
 
   questionContainer.appendChild(question);
   questionContainer.appendChild(answerInput)
@@ -196,5 +200,13 @@ function createAddProjectCard () {
   createInfoRetriever('Description:')
 }
 
+function createAddTodoCard () {
+  createPopUpFrame();
+  createInfoRetriever('Title:');
+  createInfoRetriever('Description');
+  createInfoRetriever('Due Date');
+  createInfoRetriever('Priority', 'date')
+}
 
-export { createFullSideBar, createFullProjectDisplay, detachCurrentProject, createAddProjectCard };
+
+export { createFullSideBar, createFullProjectDisplay, detachCurrentProject, createAddProjectCard, createAddTodoCard };
