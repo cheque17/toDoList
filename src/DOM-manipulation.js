@@ -149,12 +149,38 @@ function createFullProjectDisplay (projectObject) {
   createAddButton('project')
 }
 
-function findProjectDisplayed (projectsArray) {
+/*function findProjectDisplayed (projectsArray) {
   for (let i = 0; i <projectsArray.length; i++) {
     if (projectsArray[i].displayed === 1) {
       return (i);
     }
   }
+}*/
+
+const createPopUpFrame = ()=>{
+  const body = document.getElementsByTagName('body')[0];
+  
+  const popUpContainer = document.createElement('div')
+  popUpContainer.setAttribute('class', 'collecter-container');
+
+  body.appendChild(popUpContainer)
+}
+
+const createInfoRetriever = (infoRequested,)=>{
+  const container = document.querySelector('.collecter-container');
+
+  const questionContainer = document.createElement('div');
+
+  const question = document.createElement('label');
+  question.innerText = infoRequested;
+  question.setAttribute('class', 'question');
+
+  const answerInput = document.createElement('input');
+  answerInput.setAttribute('class', 'answer');
+
+  questionContainer.appendChild(question);
+  questionContainer.appendChild(answerInput)
+  container.appendChild(questionContainer)
 }
 
 function detachCurrentProject () {
@@ -162,8 +188,13 @@ function detachCurrentProject () {
   const projectContainer = document.querySelector('.project-container');
 
   generalWrapper.removeChild(projectContainer);
+}
 
+function createAddProjectCard () {
+  createPopUpFrame();
+  createInfoRetriever('Name:');
+  createInfoRetriever('Description:')
 }
 
 
-export { createFullSideBar, createFullProjectDisplay, detachCurrentProject };
+export { createFullSideBar, createFullProjectDisplay, detachCurrentProject, createAddProjectCard };
