@@ -39,14 +39,24 @@ sideBarOptions.forEach ((sideBarOption) => {
   })
 })
 
+let popUpDisplayed = 0;
+
 const addProjectButton = document.querySelector('#add-project');
 addProjectButton.addEventListener('click', ()=>{
+  if (popUpDisplayed) {
+    return
+  }
   createAddProjectCard()
+  popUpDisplayed = 1;  
 })
 
 const addTodoButton = document.querySelector('#add-task');
 addTodoButton.addEventListener('click', ()=> {
+  if(popUpDisplayed) {
+    return
+  }
   createAddTodoCard();
+  popUpDisplayed = 1;
 })
 
 

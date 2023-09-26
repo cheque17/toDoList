@@ -187,6 +187,20 @@ const createInfoRetriever = (infoRequested, inputType = 'text')=>{
   container.appendChild(questionContainer)
 }
 
+const createButton = function(buttonText, id) {
+  const container = document.querySelector('.collecter-container');
+  const buttonDiv = document.createElement('div');
+
+  const neededButton = document.createElement('button');
+  neededButton.setAttribute('type', 'button');
+  neededButton.setAttribute('id', `${id}`)
+  neededButton.innerText = buttonText; 
+
+  buttonDiv.appendChild(neededButton);
+  container.appendChild(buttonDiv);
+
+}
+
 function detachCurrentProject () {
   const generalWrapper = document.querySelector('.general-content');
   const projectContainer = document.querySelector('.project-container');
@@ -196,16 +210,20 @@ function detachCurrentProject () {
 
 function createAddProjectCard () {
   createPopUpFrame();
+  createButton('x', 'exit-button')
   createInfoRetriever('Name:');
   createInfoRetriever('Description:')
+  createButton('Submit', 'submit-button')
 }
 
 function createAddTodoCard () {
   createPopUpFrame();
+  createButton('x', 'exit-button')
   createInfoRetriever('Title:');
   createInfoRetriever('Description');
   createInfoRetriever('Due Date');
   createInfoRetriever('Priority', 'date')
+  createButton('Submit', 'submit-button')
 }
 
 
