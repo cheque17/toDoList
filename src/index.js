@@ -1,7 +1,7 @@
 import './style.css'
 import './toDoCreation'
 import {createProject} from './toDoCreation'
-import { createFullSideBar, createFullProjectDisplay, detachCurrentProject, createAddProjectCard, createAddTodoCard } from './DOM-manipulation'
+import { createFullSideBar, createFullProjectDisplay, detachElement, createAddProjectCard, createAddTodoCard } from './DOM-manipulation'
 
 
 const projects = [];
@@ -32,14 +32,14 @@ sideBarOptions.forEach ((sideBarOption) => {
     let projTitl = e.target.innerText;
     for (let i=0; i<projects.length; i++){
       if (projects[i].projectName == projTitl) {
-        detachCurrentProject();
+        detachElement('.general-content', '.project-container');
         createFullProjectDisplay(projects[i]);
       }
     }
   })
 })
 
-let popUpDisplayed = 0;
+let popUpDisplayed;
 
 const addProjectButton = document.querySelector('#add-project');
 addProjectButton.addEventListener('click', ()=>{
@@ -57,6 +57,15 @@ addTodoButton.addEventListener('click', ()=> {
   }
   createAddTodoCard();
   popUpDisplayed = 1;
+})
+
+const body = document.getElementsByTagName('body')[0];
+
+body.addEventListener('click', (e)=> {
+  if(e.target.id === 'exit-button'){
+    detachElement('#test', '.collecter-container')
+    popUpDisplayed = 0
+  }
 })
 
 

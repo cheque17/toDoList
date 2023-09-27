@@ -172,9 +172,29 @@ footer {
 	transform: translate(-50%, -50%);
 	margin: auto;
 	background-color: aliceblue;
+	width: 20vw;
+}
+
+.collecter-container div:first-child {
+	margin-top: 3vh;
 }
 
 .collecter-container div {
 	display: flex;
 	justify-content: space-between;
+	margin-bottom: 2vh;
+}
+
+.collecter-container div #exit-button {
+	border: 1px solid black;
+	border-radius: 50%; 
+	padding: 2px 7px; 
+	font-size: 14px;  
+	position: absolute; 
+	top: 5px; 
+	right: 5px;
+}
+
+.collecter-container div:last-child {
+	justify-content: center;
 }

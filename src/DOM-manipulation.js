@@ -201,11 +201,11 @@ const createButton = function(buttonText, id) {
 
 }
 
-function detachCurrentProject () {
-  const generalWrapper = document.querySelector('.general-content');
-  const projectContainer = document.querySelector('.project-container');
+function detachElement (parentContainer, childElement) {
+  const generalWrapper = document.querySelector(`${parentContainer}`);
+  const removedElementt = document.querySelector(`${childElement}`);
 
-  generalWrapper.removeChild(projectContainer);
+  generalWrapper.removeChild(removedElementt);
 }
 
 function createAddProjectCard () {
@@ -213,7 +213,7 @@ function createAddProjectCard () {
   createButton('x', 'exit-button')
   createInfoRetriever('Name:');
   createInfoRetriever('Description:')
-  createButton('Submit', 'submit-button')
+  createButton('Submit', 'submit-project')
 }
 
 function createAddTodoCard () {
@@ -223,8 +223,8 @@ function createAddTodoCard () {
   createInfoRetriever('Description');
   createInfoRetriever('Due Date');
   createInfoRetriever('Priority', 'date')
-  createButton('Submit', 'submit-button')
+  createButton('Submit', 'submit-todo')
 }
 
 
-export { createFullSideBar, createFullProjectDisplay, detachCurrentProject, createAddProjectCard, createAddTodoCard };
+export { createFullSideBar, createFullProjectDisplay, detachElement, createAddProjectCard, createAddTodoCard };
