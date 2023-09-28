@@ -77,7 +77,14 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
     popUpDisplayed = 0;
     console.log(projects);
   } else if (e.target.id === 'submit-todo'){
-
+    let todoName = document.querySelector('#new-task-title');
+    let todoDx = document.querySelector('#new-task-description');
+    let todoDate = document.querySelector('#new-task-date');
+    let todoPriority = document.querySelector('#new-task-priority');
+    projects[projectShown].addTask(todoName.value, todoDx.value, todoDate.value, todoPriority.value);
+    detachElement('#test', '.collecter-container');
+    popUpDisplayed = 0;
+    console.log(projects[projectShown].getTasks());
   }
 })
 
