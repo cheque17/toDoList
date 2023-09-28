@@ -77,6 +77,10 @@ function createFullSideBar (projectsArray) {
   createAddButton('sidebar');
 }
 
+function updateSidebarList () {
+  
+};
+
 
 function createProjectContainer (projectObject) {
   const generalWrapper = document.querySelector('.general-content');
@@ -166,7 +170,7 @@ const createPopUpFrame = ()=>{
   body.appendChild(popUpContainer)
 }
 
-const createInfoRetriever = (infoRequested, inputType = 'text')=>{
+const createInfoRetriever = (infoRequested, inputId, inputType = 'text')=>{
   const container = document.querySelector('.collecter-container');
 
   const questionContainer = document.createElement('div');
@@ -177,6 +181,7 @@ const createInfoRetriever = (infoRequested, inputType = 'text')=>{
 
   const answerInput = document.createElement('input');
   answerInput.setAttribute('class', 'answer');
+  answerInput.setAttribute('id', `${inputId}`)
 
   if (inputType !== 'text') {
     answerInput.setAttribute('type', `${inputType}`)
@@ -203,26 +208,26 @@ const createButton = function(buttonText, id) {
 
 function detachElement (parentContainer, childElement) {
   const generalWrapper = document.querySelector(`${parentContainer}`);
-  const removedElementt = document.querySelector(`${childElement}`);
+  const removedElement = document.querySelector(`${childElement}`);
 
-  generalWrapper.removeChild(removedElementt);
+  generalWrapper.removeChild(removedElement);
 }
 
 function createAddProjectCard () {
   createPopUpFrame();
   createButton('x', 'exit-button')
-  createInfoRetriever('Name:');
-  createInfoRetriever('Description:')
+  createInfoRetriever('Name:', 'new-pr-name');
+  createInfoRetriever('Description:', 'new-pr-description')
   createButton('Submit', 'submit-project')
 }
 
 function createAddTodoCard () {
   createPopUpFrame();
   createButton('x', 'exit-button')
-  createInfoRetriever('Title:');
-  createInfoRetriever('Description');
-  createInfoRetriever('Due Date');
-  createInfoRetriever('Priority', 'date')
+  createInfoRetriever('Title:','new-task-title');
+  createInfoRetriever('Description', 'new-task-description');
+  createInfoRetriever('Due Date', 'new-task-date', 'date');
+  createInfoRetriever('Priority', 'new-task-priority')
   createButton('Submit', 'submit-todo')
 }
 

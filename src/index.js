@@ -59,12 +59,17 @@ addTodoButton.addEventListener('click', ()=> {
   popUpDisplayed = 1;
 })
 
-const body = document.getElementsByTagName('body')[0];
 
-body.addEventListener('click', (e)=> {
+
+document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
   if(e.target.id === 'exit-button'){
     detachElement('#test', '.collecter-container')
     popUpDisplayed = 0
+  } else if (e.target.id === 'submit-project'){
+    addProject(document.querySelector('#new-pr-name').value, document.querySelector('#new-pr-description').value);
+    detachElement('#test', '.collecter-container');
+    popUpDisplayed = 0
+    console.log(projects)
   }
 })
 
