@@ -10,7 +10,7 @@ const addProject = (name, description) =>{
   projects.push(createProject(name, description));
 }
 
-
+//Projects created just for testing
 
 addProject('Default project', 'This is just a random description to get things working and so on. Typing more rubbish to get a longer description. So let\' keep typing abit more just because, I don\'t want to have a small description. Lalalalala, lalalalala.');
 addProject('Extra Test', 'From the moment I understood the weakness of my flesh it disgusted me. I craved the strenght and certainty of steel. Aspired to the purity of the blessed machine. ')
@@ -26,6 +26,8 @@ createFullSideBar(projects);
 createFullProjectDisplay(projects[0]);
 
 
+let projectShown = 0;
+
 const sideBarOptions = document.querySelectorAll('.list-project');
 sideBarOptions.forEach ((sideBarOption) => {
   sideBarOption.addEventListener('click', (e) => {
@@ -34,6 +36,8 @@ sideBarOptions.forEach ((sideBarOption) => {
       if (projects[i].projectName == projTitl) {
         detachElement('.general-content', '.project-container');
         createFullProjectDisplay(projects[i]);
+        projectShown = i;
+        console.log(projectShown)
       }
     }
   })
@@ -50,13 +54,15 @@ addProjectButton.addEventListener('click', ()=>{
   popUpDisplayed = 1;  
 })
 
-const addTodoButton = document.querySelector('#add-task');
-addTodoButton.addEventListener('click', ()=> {
-  if(popUpDisplayed) {
-    return
+document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
+  if(e.target.id === 'task-img-btt'){
+    if(popUpDisplayed) {
+      return
+    }
+    createAddTodoCard();
+    popUpDisplayed = 1;
   }
-  createAddTodoCard();
-  popUpDisplayed = 1;
+
 })
 
 
@@ -68,8 +74,10 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
   } else if (e.target.id === 'submit-project'){
     addProject(document.querySelector('#new-pr-name').value, document.querySelector('#new-pr-description').value);
     detachElement('#test', '.collecter-container');
-    popUpDisplayed = 0
-    console.log(projects)
+    popUpDisplayed = 0;
+    console.log(projects);
+  } else if (e.target.id === 'submit-todo'){
+
   }
 })
 

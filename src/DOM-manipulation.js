@@ -66,8 +66,9 @@ function createAddButton (area) {
     sideBar.appendChild(buttonContainer)
   } else {
     let project = document.querySelector('.project-container');
-    buttonContainer.setAttribute('id', 'add-task')
-    project.appendChild(buttonContainer)
+    buttonContainer.setAttribute('id', 'add-task');
+    addImg.setAttribute('id', 'task-img-btt');
+    project.appendChild(buttonContainer);
   }
 }
 
@@ -78,7 +79,7 @@ function createFullSideBar (projectsArray) {
 }
 
 function updateSidebarList () {
-  
+
 };
 
 
