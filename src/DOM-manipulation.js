@@ -160,6 +160,14 @@ function createFullProjectDisplay (projectObject) {
   createAddButton('project')
 }
 
+function updateTodoList (previousTodoNumber, tasksArray ) {
+  let todoCollection = document.querySelectorAll('.todo-container');
+  for (let i = 0; i < previousTodoNumber; i++){
+    todoCollection[i].remove();
+  }
+  createTodoDisplay(tasksArray);
+
+}
 
 
 const createPopUpFrame = ()=>{
@@ -233,4 +241,4 @@ function createAddTodoCard () {
 }
 
 
-export { createFullSideBar, createFullProjectDisplay, detachElement, createAddProjectCard, createAddTodoCard, updateSidebarList };
+export { createFullSideBar, createFullProjectDisplay, detachElement, createAddProjectCard, createAddTodoCard, updateSidebarList, updateTodoList };

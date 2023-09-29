@@ -1,7 +1,7 @@
 import './style.css'
 import './toDoCreation'
 import {createProject} from './toDoCreation'
-import { createFullSideBar, createFullProjectDisplay, detachElement, createAddProjectCard, createAddTodoCard, updateSidebarList } from './DOM-manipulation'
+import { createFullSideBar, createFullProjectDisplay, detachElement, createAddProjectCard, createAddTodoCard, updateSidebarList, updateTodoList } from './DOM-manipulation'
 
 
 const projects = [];
@@ -78,6 +78,8 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
     popUpDisplayed = 0;
     console.log(projects);
   } else if (e.target.id === 'submit-todo'){
+    const previousTodoNumber = projects[projectShown].getTasks().length;
+    console.log(previousTodoNumber);
     let todoName = document.querySelector('#new-task-title');
     let todoDx = document.querySelector('#new-task-description');
     let todoDate = document.querySelector('#new-task-date');
@@ -85,7 +87,9 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
     projects[projectShown].addTask(todoName.value, todoDx.value, todoDate.value, todoPriority.value);
     detachElement('#test', '.collecter-container');
     popUpDisplayed = 0;
-    console.log(projects[projectShown].getTasks());
+    updateTodoList(previousTodoNumber, projects[projectShown].getTasks())
+    console.log(projects[projectShown])
+    console.log(projects[projectShown].getTasks().length)
   }
 })
 
