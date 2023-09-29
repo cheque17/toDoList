@@ -78,8 +78,12 @@ function createFullSideBar (projectsArray) {
   createAddButton('sidebar');
 }
 
-function updateSidebarList () {
-
+function updateSidebarList (projectsArray,) {
+  const projectCollection = document.querySelectorAll('.list-project');
+  for (let i= 0; i<projectCollection.length; i++){
+    projectCollection[i].remove()
+  }
+  displayProjects(projectsArray)
 };
 
 
@@ -108,15 +112,17 @@ function createProjectContainer (projectObject) {
 
   projectInformation.appendChild(projectDescription);
 
-  const toDoListContainer = document.createElement('div');
-  toDoListContainer.setAttribute('class', 'list-display');
-  projectContainer.appendChild(toDoListContainer);
-
   const listName = document.createElement('h2');
   listName.setAttribute('clas', 'list-name');
   listName.innerText = 'Tasks';
 
-  toDoListContainer.appendChild(listName);
+  projectContainer.appendChild(listName);
+
+  const toDoListContainer = document.createElement('div');
+  toDoListContainer.setAttribute('class', 'list-display');
+  projectContainer.appendChild(toDoListContainer);
+
+
 }
 
 function createTodoDisplay (tasksArray) {
@@ -154,13 +160,7 @@ function createFullProjectDisplay (projectObject) {
   createAddButton('project')
 }
 
-/*function findProjectDisplayed (projectsArray) {
-  for (let i = 0; i <projectsArray.length; i++) {
-    if (projectsArray[i].displayed === 1) {
-      return (i);
-    }
-  }
-}*/
+
 
 const createPopUpFrame = ()=>{
   const body = document.getElementsByTagName('body')[0];
@@ -233,4 +233,4 @@ function createAddTodoCard () {
 }
 
 
-export { createFullSideBar, createFullProjectDisplay, detachElement, createAddProjectCard, createAddTodoCard };
+export { createFullSideBar, createFullProjectDisplay, detachElement, createAddProjectCard, createAddTodoCard, updateSidebarList };

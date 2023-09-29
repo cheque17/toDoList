@@ -1,7 +1,7 @@
 import './style.css'
 import './toDoCreation'
 import {createProject} from './toDoCreation'
-import { createFullSideBar, createFullProjectDisplay, detachElement, createAddProjectCard, createAddTodoCard } from './DOM-manipulation'
+import { createFullSideBar, createFullProjectDisplay, detachElement, createAddProjectCard, createAddTodoCard, updateSidebarList } from './DOM-manipulation'
 
 
 const projects = [];
@@ -28,9 +28,8 @@ createFullProjectDisplay(projects[0]);
 
 let projectShown = 0;
 
-const sideBarOptions = document.querySelectorAll('.list-project');
-sideBarOptions.forEach ((sideBarOption) => {
-  sideBarOption.addEventListener('click', (e) => {
+document.querySelector('#projects-list').addEventListener('click', (e)=>{
+  if(e.target.className === 'project-name'){
     let projTitl = e.target.innerText;
     for (let i=0; i<projects.length; i++){
       if (projects[i].projectName == projTitl) {
@@ -40,13 +39,14 @@ sideBarOptions.forEach ((sideBarOption) => {
         console.log(projectShown)
       }
     }
-  })
+  }
 })
+
+
 
 let popUpDisplayed;
 
-const addProjectButton = document.querySelector('#add-project');
-addProjectButton.addEventListener('click', ()=>{
+document.querySelector('#add-project').addEventListener('click', ()=>{
   if (popUpDisplayed) {
     return
   }
@@ -74,6 +74,7 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
   } else if (e.target.id === 'submit-project'){
     addProject(document.querySelector('#new-pr-name').value, document.querySelector('#new-pr-description').value);
     detachElement('#test', '.collecter-container');
+    updateSidebarList(projects)
     popUpDisplayed = 0;
     console.log(projects);
   } else if (e.target.id === 'submit-todo'){

@@ -75,6 +75,10 @@ header {
 	width: 80%;
 }
 
+.sidebar ul {
+	overflow: auto;
+	max-height: 65vh;
+}
 
 ul li {
 	display: flex;
@@ -93,7 +97,7 @@ ul li .options-icon {
 	object-fit: cover;
 }
 
-ul li,
+ul li .project-name,
 .button-container {
 	cursor: grab;
 }
@@ -131,8 +135,7 @@ ul li,
 	margin-bottom: 3vw;
 }
 
-.project-container .project-information h2, 
-.project-container .list-display h2 {
+.project-container  h2 {
 	text-align: center;
   font-size: 4vh;
 }
