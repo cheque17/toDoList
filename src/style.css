@@ -98,26 +98,27 @@ ul li .options-icon {
 }
 
 ul li .project-name,
-.button-container {
+.add-button-container,
+.del-button-container {
 	cursor: grab;
 }
 
-.general-content .sidebar .button-container, 
-.general-content .project-container .button-container {
+.general-content .sidebar .add-button-container, 
+.general-content .project-container .add-button-container {
 	position: absolute;
 	bottom: 2vh;
 	right: 2vh;
 }
 
-.project-container .button-container#delete-project {
+.project-container .del-button-container {
 	position: absolute;
 	bottom: 2vh;
 	left: 2vh;
 }
 
-.general-content .sidebar .button-container .add-img,
-.general-content .project-container .button-container .add-img,
-.project-container .button-container .del-img {
+.general-content .sidebar .add-button-container .add-img,
+.general-content .project-container .add-button-container .add-img,
+.project-container .del-button-container .del-img {
  object-fit: contain;
  width: 4vh;
 }

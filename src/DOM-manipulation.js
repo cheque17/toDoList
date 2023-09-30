@@ -23,14 +23,14 @@ function createSidebar () {
   listedProjects.setAttribute('id', 'projects-list');
 
   sideBar.appendChild(listedProjects);
-}
+};
 
 function displayProjects (projectsArray) {
-  const list = document.querySelector('#projects-list');  
+  const list = document.querySelector('#projects-list');
   
   for (let i=0; i<projectsArray.length; i++) {
     let project = document.createElement('li');
-    project.setAttribute('class', 'list-project')
+    project.setAttribute('class', 'list-project');
     
     const myProjIcon = new Image();
     myProjIcon.setAttribute('class', 'sdbar-icon')
@@ -44,16 +44,16 @@ function displayProjects (projectsArray) {
     myOptIcon.setAttribute('class', 'options-icon');
     myOptIcon.src = Option;
 
-    project.appendChild(myProjIcon)
+    project.appendChild(myProjIcon);
     project.appendChild(projectTitle);
     project.appendChild(myOptIcon);
     list.appendChild(project);
   }
-}
+};
 
 function createAddButton (area) {
   const buttonContainer = document.createElement('div');
-  buttonContainer.setAttribute('class', 'button-container');
+  buttonContainer.setAttribute('class', 'add-button-container');
   
   const addImg = new Image();
   addImg.setAttribute('class', 'add-img');
@@ -71,11 +71,11 @@ function createAddButton (area) {
     addImg.setAttribute('id', 'task-img-btt');
     project.appendChild(buttonContainer);
   }
-}
+};
 
 function createDeleteButton (area) {
   const buttonContainer = document.createElement('div');
-  buttonContainer.setAttribute('class', 'button-container');
+  buttonContainer.setAttribute('class', 'del-button-container');
 
   const delImg = new Image();
   delImg.setAttribute('class', 'del-img');
@@ -85,12 +85,14 @@ function createDeleteButton (area) {
 
   if (area === 'project'){
     let project = document.querySelector('.project-container')
+    console.log(project);
     buttonContainer.setAttribute('id','delete-project');
     delImg.setAttribute('id', 'project-del-img');
     project.appendChild(buttonContainer);
   } else {
     let taskDisplay = document.querySelector('.todo-container');
     buttonContainer.setAttribute('id', 'delete-task');
+    buttonContainer.setAttribute('class', 'del');
     delImg.setAttribute('id', 'task-del-img');
     taskDisplay.appendChild(buttonContainer);
   }
@@ -174,14 +176,13 @@ function createTodoDisplay (tasksArray) {
     taskContainer.appendChild(todoDueDate);
 
     toDoList.appendChild(taskContainer);
-    
   }
 }
 
 function createFullProjectDisplay (projectObject) {
   createProjectContainer(projectObject);
   createTodoDisplay(projectObject.getTasks());
-  createAddButton('project')
+  createAddButton('project');
   createDeleteButton('project')
 }
 
