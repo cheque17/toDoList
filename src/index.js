@@ -65,6 +65,10 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
 
 })
 
+document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
+
+});
+
 
 
 document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
@@ -72,24 +76,28 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
     detachElement('#test', '.collecter-container')
     popUpDisplayed = 0
   } else if (e.target.id === 'submit-project'){
-    addProject(document.querySelector('#new-pr-name').value, document.querySelector('#new-pr-description').value);
+    if (document.querySelector('#new-pr-name').value && document.querySelector('#new-pr-description').value ) {
+      addProject(document.querySelector('#new-pr-name').value, document.querySelector('#new-pr-description').value);
     detachElement('#test', '.collecter-container');
     updateSidebarList(projects)
     popUpDisplayed = 0;
-    console.log(projects);
+    } else {
+      alert('All the fields should be filled for a project to be created.')
+    }    
   } else if (e.target.id === 'submit-todo'){
-    const previousTodoNumber = projects[projectShown].getTasks().length;
-    console.log(previousTodoNumber);
     let todoName = document.querySelector('#new-task-title');
     let todoDx = document.querySelector('#new-task-description');
     let todoDate = document.querySelector('#new-task-date');
     let todoPriority = document.querySelector('#new-task-priority');
-    projects[projectShown].addTask(todoName.value, todoDx.value, todoDate.value, todoPriority.value);
-    detachElement('#test', '.collecter-container');
-    popUpDisplayed = 0;
-    updateTodoList(previousTodoNumber, projects[projectShown].getTasks())
-    console.log(projects[projectShown])
-    console.log(projects[projectShown].getTasks().length)
+    if (todoName.value && todoDx.value && todoDate.value){
+      const previousTodoNumber = projects[projectShown].getTasks().length;
+      projects[projectShown].addTask(todoName.value, todoDx.value, todoDate.value, todoPriority.value);
+      detachElement('#test', '.collecter-container');
+      popUpDisplayed = 0;
+      updateTodoList(previousTodoNumber, projects[projectShown].getTasks())
+    } else {
+      alert('Title, description and date should be filled for a todo to be added.')
+    }
   }
 })
 

@@ -1,6 +1,7 @@
 import Icon from './menu.png';
 import Option from './more.png';
 import Add from './add.png';
+import Delete from './delete.png';
 
 function createSidebar () {
   const generalContent = document.querySelector('.general-content');
@@ -71,6 +72,29 @@ function createAddButton (area) {
     project.appendChild(buttonContainer);
   }
 }
+
+function createDeleteButton (area) {
+  const buttonContainer = document.createElement('div');
+  buttonContainer.setAttribute('class', 'button-container');
+
+  const delImg = new Image();
+  delImg.setAttribute('class', 'del-img');
+  delImg.src= Delete;
+
+  buttonContainer.appendChild(delImg);
+
+  if (area === 'project'){
+    let project = document.querySelector('.project-container')
+    buttonContainer.setAttribute('id','delete-project');
+    delImg.setAttribute('id', 'project-del-img');
+    project.appendChild(buttonContainer);
+  } else {
+    let taskDisplay = document.querySelector('.todo-container');
+    buttonContainer.setAttribute('id', 'delete-task');
+    delImg.setAttribute('id', 'task-del-img');
+    taskDisplay.appendChild(buttonContainer);
+  }
+};
 
 function createFullSideBar (projectsArray) {
   createSidebar();
@@ -158,6 +182,7 @@ function createFullProjectDisplay (projectObject) {
   createProjectContainer(projectObject);
   createTodoDisplay(projectObject.getTasks());
   createAddButton('project')
+  createDeleteButton('project')
 }
 
 function updateTodoList (previousTodoNumber, tasksArray ) {

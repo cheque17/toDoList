@@ -109,8 +109,15 @@ ul li .project-name,
 	right: 2vh;
 }
 
+.project-container .button-container#delete-project {
+	position: absolute;
+	bottom: 2vh;
+	left: 2vh;
+}
+
 .general-content .sidebar .button-container .add-img,
-.general-content .project-container .button-container .add-img {
+.general-content .project-container .button-container .add-img,
+.project-container .button-container .del-img {
  object-fit: contain;
  width: 4vh;
 }
@@ -126,6 +133,7 @@ ul li .project-name,
 	padding-top: 4vh;
 	position: relative;
 }
+
 
 .project-container .project-information {
 	box-sizing: border-box;
@@ -145,6 +153,8 @@ ul li .project-name,
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	max-height: 56vh;
+	overflow: auto;
 }
 
 .project-container .list-display .todo-container:nth-child(n + 2) {
