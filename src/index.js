@@ -37,13 +37,10 @@ document.querySelector('#projects-list').addEventListener('click', (e)=>{
         detachElement('.general-content', '.project-container');
         createFullProjectDisplay(projects[i]);
         projectShown = i;
-        console.log(projectShown)
       }
     }
   }
 })
-
-
 
 let popUpDisplayed;
 

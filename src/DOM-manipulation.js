@@ -189,9 +189,7 @@ function updateTodoList (previousTodoNumber, tasksArray ) {
     todoCollection[i].remove();
   }
   createTodoDisplay(tasksArray);
-
 }
-
 
 
 function detachElement (parentContainer, childElement) {
