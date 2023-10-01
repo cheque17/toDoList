@@ -1,7 +1,8 @@
 import './style.css'
 import './toDoCreation'
 import {createProject} from './toDoCreation'
-import { createFullSideBar, createFullProjectDisplay, detachElement, createAddProjectCard, createAddTodoCard, updateSidebarList, updateTodoList } from './DOM-manipulation'
+import { createFullSideBar, createFullProjectDisplay, detachElement, updateSidebarList, updateTodoList } from './DOM-manipulation';
+import { createAddProjectCard, createAddTodoCard } from './pop-up-DOM';
 
 
 const projects = [];
@@ -104,7 +105,3 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
   }
 })
 
-
-
-console.log(projects[0].getTasks())
-console.log('Heyyy, I\'m here')
