@@ -66,7 +66,10 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
 })
 
 document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
-
+  console.log(e.target.id);
+  if (e.target.id === 'project-del-img'){
+    console.log('I\'m about to delete this shit')
+  }
 });
 
 

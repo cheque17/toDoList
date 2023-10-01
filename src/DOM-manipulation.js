@@ -92,7 +92,6 @@ function createDeleteButton (area) {
   } else {
     let taskDisplay = document.querySelector('.todo-container');
     buttonContainer.setAttribute('id', 'delete-task');
-    buttonContainer.setAttribute('class', 'del');
     delImg.setAttribute('id', 'task-del-img');
     taskDisplay.appendChild(buttonContainer);
   }
@@ -128,7 +127,7 @@ function createProjectContainer (projectObject) {
 
   const projectTitle = document.createElement('h2');
   projectTitle.setAttribute('class', 'project-title');
-  projectTitle.textContent = projectObject.projectName;
+  projectTitle.innerText = projectObject.projectName;
 
   projectInformation.appendChild(projectTitle);
   
@@ -139,7 +138,7 @@ function createProjectContainer (projectObject) {
   projectInformation.appendChild(projectDescription);
 
   const listName = document.createElement('h2');
-  listName.setAttribute('clas', 'list-name');
+  listName.setAttribute('class', 'list-name');
   listName.innerText = 'Tasks';
 
   projectContainer.appendChild(listName);
@@ -147,8 +146,6 @@ function createProjectContainer (projectObject) {
   const toDoListContainer = document.createElement('div');
   toDoListContainer.setAttribute('class', 'list-display');
   projectContainer.appendChild(toDoListContainer);
-
-
 }
 
 function createTodoDisplay (tasksArray) {
@@ -176,6 +173,7 @@ function createTodoDisplay (tasksArray) {
     taskContainer.appendChild(todoDueDate);
 
     toDoList.appendChild(taskContainer);
+
   }
 }
 
@@ -183,7 +181,7 @@ function createFullProjectDisplay (projectObject) {
   createProjectContainer(projectObject);
   createTodoDisplay(projectObject.getTasks());
   createAddButton('project');
-  createDeleteButton('project')
+  createDeleteButton('project');
 }
 
 function updateTodoList (previousTodoNumber, tasksArray ) {
