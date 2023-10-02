@@ -178,7 +178,8 @@ footer {
 }
 
 
-.collecter-container {
+.collecter-container,
+.delete-card-container {
 	border: 1px black solid;
 	padding: 1vh 5vh;
 	position: absolute;
@@ -190,14 +191,34 @@ footer {
 	width: 20vw;
 }
 
-.collecter-container div:first-child {
+.delete-card-container {
+	width: 30vw;
+}
+
+.collecter-container div:first-child,
+.delete-card-container p:first-child {
 	margin-top: 3vh;
 }
 
-.collecter-container div {
+.delete-card-container p:first-child {
+	font-weight: 600;
+	font-size: 3vh;
+}
+
+.collecter-container div,
+.delete-card-container .cancel-continue-container {
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 2vh;
+}
+
+.delete-card-container p:nth-child(2){
+	margin-top: 2vh;
+}
+
+.delete-card-container .cancel-continue-container{
+	justify-content: space-around;
+	margin-top: 3vh;
 }
 
 .collecter-container div #exit-button {
@@ -212,4 +233,11 @@ footer {
 
 .collecter-container div:last-child {
 	justify-content: center;
+}
+
+.collecter-container div button,
+.delete-card-container div button {
+	padding: 1vh 1vh;
+	border-radius: 7px;
+	border: 1px black solid;
 }

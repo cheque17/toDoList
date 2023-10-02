@@ -2,7 +2,7 @@ import './style.css'
 import './toDoCreation'
 import {createProject} from './toDoCreation'
 import { createFullSideBar, createFullProjectDisplay, detachElement, updateSidebarList, updateTodoList } from './DOM-manipulation';
-import { createAddProjectCard, createAddTodoCard } from './pop-up-DOM';
+import { createAddProjectCard, createAddTodoCard, createDeleteCard } from './pop-up-DOM';
 
 
 const projects = [];
@@ -63,12 +63,30 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
 
 })
 
-document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
-  console.log(e.target.id);
+document.querySelector('.general-content').addEventListener('click', (e)=> {
   if (e.target.id === 'project-del-img'){
-    console.log('I\'m about to delete this shit')
+    if(popUpDisplayed) {
+      return
+    }
+    createDeleteCard();
+    popUpDisplayed = 1;
   }
 });
+
+document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
+  console.log(e.target.id);
+  if (e.target.id === 'cancel-button'){
+    detachElement('#test', '.delete-card-container')
+    popUpDisplayed = 0;
+  } else if (e.target.id === 'continue-button'){
+    detachElement('.general-content','.project-container')
+    projects.splice(projectShown, 1);
+    createFullProjectDisplay(projects[0]);
+    projectShown = 0;
+    detachElement('#test', '.delete-card-container')
+    console.log(projects)
+  }
+})
 
 
 

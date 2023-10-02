@@ -1,8 +1,12 @@
-const createPopUpFrame = ()=>{
+const createPopUpFrame = (use)=>{
   const body = document.getElementsByTagName('body')[0];
   
-  const popUpContainer = document.createElement('div')
-  popUpContainer.setAttribute('class', 'collecter-container');
+  const popUpContainer = document.createElement('div');
+  if(use === 'collecter'){
+    popUpContainer.setAttribute('class', 'collecter-container');
+  } else {
+    popUpContainer.setAttribute('class', 'delete-card-container');
+  }  
 
   body.appendChild(popUpContainer)
 }
@@ -47,7 +51,7 @@ const createButton = function(buttonText, id) {
 
 
 function createAddProjectCard () {
-  createPopUpFrame();
+  createPopUpFrame('collecter');
   createButton('x', 'exit-button')
   createInfoRetriever('Name:', 'new-pr-name');
   createInfoRetriever('Description:', 'new-pr-description')
@@ -55,7 +59,7 @@ function createAddProjectCard () {
 }
 
 function createAddTodoCard () {
-  createPopUpFrame();
+  createPopUpFrame('collecter');
   createButton('x', 'exit-button')
   createInfoRetriever('Title:','new-task-title');
   createInfoRetriever('Description', 'new-task-description');
@@ -64,4 +68,50 @@ function createAddTodoCard () {
   createButton('Submit', 'submit-todo')
 }
 
-export {createAddProjectCard, createAddTodoCard}
+const createDeletePopUpContent = (deleteTarget)=> {
+  const container = document.querySelector('.delete-card-container');
+  
+  const bigAttentionSeeker = document.createElement('p');
+  bigAttentionSeeker.innerText = 'Hey, are you sure you want to continue?';
+
+  container.appendChild(bigAttentionSeeker);
+
+  const confirmationQuestion = document.createElement('p');
+  confirmationQuestion.setAttribute('class', 'confirmation-question');
+
+  if (deleteTarget === 'project'){
+    confirmationQuestion.innerText = 'If you press confirm, this project and all its tasks will be deleted. Are you sure you want to continue?'
+  } else {
+    confirmationQuestion.innerText = 'If you press confirm, this task and all its details will be deleted. Are you sure you want to continue?'
+  }
+
+  container.appendChild(confirmationQuestion);
+
+  const decisionButtonsContainer = document.createElement('div');
+  decisionButtonsContainer.setAttribute('class', 'cancel-continue-container');
+
+  container.appendChild(decisionButtonsContainer);
+
+  const cancelButton = document.createElement('button');
+  cancelButton.setAttribute('type', 'button');
+  cancelButton.setAttribute('class', 'delete-decision');
+  cancelButton.setAttribute('id', 'cancel-button');
+  cancelButton.innerText = 'Cancel'
+
+  decisionButtonsContainer.appendChild(cancelButton);
+  
+  const continueButton = document.createElement('button');
+  continueButton.setAttribute('type','button');
+  continueButton.setAttribute('class','delete-decision');
+  continueButton.setAttribute('id', 'continue-button');
+  continueButton.innerText = 'Continue';
+
+  decisionButtonsContainer.appendChild(continueButton);
+}
+
+function createDeleteCard () {
+  createPopUpFrame('delete confirmation');
+  createDeletePopUpContent('project');
+};
+
+export {createAddProjectCard, createAddTodoCard, createDeleteCard}
