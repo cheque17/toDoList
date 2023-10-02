@@ -28,7 +28,7 @@ createFullProjectDisplay(projects[0]);
 
 
 let projectShown = 0;
-
+//This event listener makes the side bar options work and the variable keeps track of the project displayed
 document.querySelector('#projects-list').addEventListener('click', (e)=>{
   if(e.target.className === 'project-name'){
     let projTitl = e.target.innerText;
@@ -43,6 +43,8 @@ document.querySelector('#projects-list').addEventListener('click', (e)=>{
 })
 
 let popUpDisplayed;
+
+//These event listeners make the add buttons work and the variable avoids more than one pop up to be displayed at once.
 
 document.querySelector('#add-project').addEventListener('click', ()=>{
   if (popUpDisplayed) {
@@ -73,8 +75,10 @@ document.querySelector('.general-content').addEventListener('click', (e)=> {
   }
 });
 
+
+//This event listener controls the add functioning of the delete card
+
 document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
-  console.log(e.target.id);
   if (e.target.id === 'cancel-button'){
     detachElement('#test', '.delete-card-container')
     popUpDisplayed = 0;
@@ -83,11 +87,13 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
     projects.splice(projectShown, 1);
     createFullProjectDisplay(projects[0]);
     projectShown = 0;
+    updateSidebarList(projects);
     detachElement('#test', '.delete-card-container')
     console.log(projects)
   }
 })
 
+//This event listener controls the functioning of the add pop up for both projects and tasks.
 
 
 document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
@@ -97,9 +103,9 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
   } else if (e.target.id === 'submit-project'){
     if (document.querySelector('#new-pr-name').value && document.querySelector('#new-pr-description').value ) {
       addProject(document.querySelector('#new-pr-name').value, document.querySelector('#new-pr-description').value);
-    detachElement('#test', '.collecter-container');
-    updateSidebarList(projects)
-    popUpDisplayed = 0;
+      detachElement('#test', '.collecter-container');
+      updateSidebarList(projects)
+      popUpDisplayed = 0;
     } else {
       alert('All the fields should be filled for a project to be created.')
     }    
@@ -120,3 +126,5 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
   }
 })
 
+projects[0].projectName = 'Hey';
+console.log(projects)
