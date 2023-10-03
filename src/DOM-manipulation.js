@@ -11,7 +11,7 @@ function createSidebar () {
 
   generalContent.appendChild(sideBar);
 
-  const sectionName = document.createElement('h2')
+  const sectionName = document.createElement('h2');
   sectionName.textContent = 'Projects';
   
   sideBar.appendChild(sectionName);
@@ -73,6 +73,21 @@ function createAddButton (area) {
   }
 };
 
+function createFullSideBar (projectsArray) {
+  createSidebar();
+  displayProjects(projectsArray);
+  createAddButton('sidebar');
+}
+
+function updateSidebarList (projectsArray,) {
+  const projectCollection = document.querySelectorAll('.list-project');
+  for (let i= 0; i<projectCollection.length; i++){
+    projectCollection[i].remove()
+  }
+  displayProjects(projectsArray)
+};
+
+
 function createDeleteButton (area) {
   const buttonContainer = document.createElement('div');
   buttonContainer.setAttribute('class', 'del-button-container');
@@ -93,21 +108,8 @@ function createDeleteButton (area) {
     buttonContainer.setAttribute('id', 'delete-task');
     delImg.setAttribute('id', 'task-del-img');
     taskDisplay.appendChild(buttonContainer);
+    console.log(taskDisplay)
   }
-};
-
-function createFullSideBar (projectsArray) {
-  createSidebar();
-  displayProjects(projectsArray);
-  createAddButton('sidebar');
-}
-
-function updateSidebarList (projectsArray,) {
-  const projectCollection = document.querySelectorAll('.list-project');
-  for (let i= 0; i<projectCollection.length; i++){
-    projectCollection[i].remove()
-  }
-  displayProjects(projectsArray)
 };
 
 
@@ -145,7 +147,8 @@ function createProjectContainer (projectObject) {
   const toDoListContainer = document.createElement('div');
   toDoListContainer.setAttribute('class', 'list-display');
   projectContainer.appendChild(toDoListContainer);
-}
+};
+
 
 function createTodoDisplay (tasksArray) {
   let toDoList = document.querySelector('.list-display');
@@ -158,12 +161,13 @@ function createTodoDisplay (tasksArray) {
     todoTitle.innerText = tasksArray[i].title;
 
     taskContainer.appendChild(todoTitle);
-
+/*
     let todoDescription = document.createElement('p');
     todoDescription.setAttribute('class', 'todo-description');
     todoDescription.innerText = tasksArray[i].description;
 
     taskContainer.appendChild(todoDescription);
+*/
 
     let todoDueDate = document.createElement('p');
     todoDueDate.setAttribute('class', 'todo-duedate');
@@ -172,16 +176,17 @@ function createTodoDisplay (tasksArray) {
     taskContainer.appendChild(todoDueDate);
 
     toDoList.appendChild(taskContainer);
-
   }
-}
+};
+
 
 function createFullProjectDisplay (projectObject) {
   createProjectContainer(projectObject);
   createTodoDisplay(projectObject.getTasks());
   createAddButton('project');
   createDeleteButton('project');
-}
+};
+
 
 function updateTodoList (previousTodoNumber, tasksArray ) {
   let todoCollection = document.querySelectorAll('.todo-container');

@@ -76,7 +76,7 @@ document.querySelector('.general-content').addEventListener('click', (e)=> {
 });
 
 
-//This event listener controls the add functioning of the delete card
+//This event listener controls the functioning of the delete card
 
 document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
   if (e.target.id === 'cancel-button'){
@@ -89,7 +89,7 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
     projectShown = 0;
     updateSidebarList(projects);
     detachElement('#test', '.delete-card-container')
-    console.log(projects)
+    popUpDisplayed = 0;
   }
 })
 
@@ -125,6 +125,3 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
     }
   }
 })
-
-projects[0].projectName = 'Hey';
-console.log(projects)
