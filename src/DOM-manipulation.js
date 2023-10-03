@@ -156,11 +156,15 @@ function createTodoDisplay (tasksArray) {
     let taskContainer = document.createElement('div');
     taskContainer.setAttribute('class', 'todo-container');
 
+    const nameDescriptionContainer = document.createElement('div');
+
+    taskContainer.appendChild(nameDescriptionContainer);
+
     let todoTitle = document.createElement('h3');
     todoTitle.setAttribute('class', 'todo-title');
     todoTitle.innerText = tasksArray[i].title;
 
-    taskContainer.appendChild(todoTitle);
+    nameDescriptionContainer.appendChild(todoTitle);
 /*
     let todoDescription = document.createElement('p');
     todoDescription.setAttribute('class', 'todo-description');
@@ -173,7 +177,14 @@ function createTodoDisplay (tasksArray) {
     todoDueDate.setAttribute('class', 'todo-duedate');
     todoDueDate.innerText = tasksArray[i].dueDate;
 
-    taskContainer.appendChild(todoDueDate);
+    nameDescriptionContainer.appendChild(todoDueDate);
+
+    const expandButton = document.createElement('button');
+    expandButton.setAttribute('id',`todo-task-${i}`);
+    expandButton.setAttribute('class', 'expand-button');
+    expandButton.innerText = 'Expand';
+
+    taskContainer.appendChild(expandButton);
 
     toDoList.appendChild(taskContainer);
   }

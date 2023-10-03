@@ -40,7 +40,7 @@ document.querySelector('#projects-list').addEventListener('click', (e)=>{
       }
     }
   }
-})
+});
 
 let popUpDisplayed;
 
@@ -52,7 +52,7 @@ document.querySelector('#add-project').addEventListener('click', ()=>{
   }
   createAddProjectCard()
   popUpDisplayed = 1;  
-})
+});
 
 document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
   if(e.target.id === 'task-img-btt'){
@@ -63,7 +63,7 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
     popUpDisplayed = 1;
   }
 
-})
+});
 
 document.querySelector('.general-content').addEventListener('click', (e)=> {
   if (e.target.id === 'project-del-img'){
@@ -91,10 +91,9 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
     detachElement('#test', '.delete-card-container')
     popUpDisplayed = 0;
   }
-})
+});
 
 //This event listener controls the functioning of the add pop up for both projects and tasks.
-
 
 document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
   if(e.target.id === 'exit-button'){
@@ -124,4 +123,13 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
       alert('Title, description and date should be filled for a todo to be added.')
     }
   }
-})
+});
+
+//This event triggers the expand buttons
+
+document.querySelector('.general-content').addEventListener('click', (e)=> {
+  if (e.target.className === 'expand-button'){
+    let taskNumber = e.target.id.slice(-1);
+    console.log(projects[projectShown].getTasks()[taskNumber]);
+  }
+});
