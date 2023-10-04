@@ -112,13 +112,15 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
     let todoName = document.querySelector('#new-task-title');
     let todoDx = document.querySelector('#new-task-description');
     let todoDate = document.querySelector('#new-task-date');
-    let todoPriority = document.querySelector('#new-task-priority');
+    let todoPriority = document.getElementsByName('priority-level');
+    let priorityValue = Array.from(todoPriority).find(radio => radio.checked);
     if (todoName.value && todoDx.value && todoDate.value){
       const previousTodoNumber = projects[projectShown].getTasks().length;
-      projects[projectShown].addTask(todoName.value, todoDx.value, todoDate.value, todoPriority.value);
+      projects[projectShown].addTask(todoName.value, todoDx.value, todoDate.value, priorityValue.value);
       detachElement('#test', '.collecter-container');
       popUpDisplayed = 0;
-      updateTodoList(previousTodoNumber, projects[projectShown].getTasks())
+      updateTodoList(previousTodoNumber, projects[projectShown].getTasks());
+      console.log(projects[projectShown].getTasks())
     } else {
       alert('Title, description and date should be filled for a todo to be added.')
     }

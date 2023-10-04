@@ -36,6 +36,46 @@ const createInfoRetriever = (infoRequested, inputId, inputType = 'text')=>{
   container.appendChild(questionContainer)
 };
 
+const createPrioritySelector = ()=>{
+  const container = document.querySelector('.collecter-container');
+
+  const fieldset = document.createElement('fieldset');
+  const genericDiv = document.createElement('div');
+  const legend = document.createElement('legend');
+  legend.innerText = 'Priority:'
+
+  fieldset.appendChild(legend);
+  fieldset.appendChild(genericDiv);
+  container.appendChild(fieldset);
+
+  const inputOne = document.createElement('input');
+  inputOne.setAttribute('type', 'radio');
+  inputOne.setAttribute('id', 'low-priority');
+  inputOne.setAttribute('value','low');
+  inputOne.setAttribute('name', 'priority-level');
+  inputOne.setAttribute('checked', '');
+
+  const labelOne = document.createElement('label');
+  labelOne.setAttribute('for', 'low-priority');
+  labelOne.innerText = 'Low';
+
+  const inputTwo = document.createElement('input')
+  inputTwo.setAttribute('type', 'radio');
+  inputTwo.setAttribute('id', 'high-priority');
+  inputTwo.setAttribute('value','high');
+  inputTwo.setAttribute('name', 'priority-level');
+
+  const labelTwo = document.createElement('label');
+  labelTwo.setAttribute('for', 'high-priority');
+  labelTwo.innerText = 'High'; 
+
+  genericDiv.appendChild(inputOne);
+  genericDiv.appendChild(labelOne);
+  genericDiv.appendChild(inputTwo);
+  genericDiv.appendChild(labelTwo);
+
+};
+
 const createButton = function(buttonText, id) {
   const container = document.querySelector('.collecter-container');
   const buttonDiv = document.createElement('div');
@@ -65,7 +105,8 @@ function createAddTodoCard () {
   createInfoRetriever('Title:','new-task-title');
   createInfoRetriever('Description', 'new-task-description');
   createInfoRetriever('Due Date', 'new-task-date', 'date');
-  createInfoRetriever('Priority', 'new-task-priority')
+  createPrioritySelector();
+  //createInfoRetriever('Priority', 'new-task-priority')
   createButton('Submit', 'submit-todo')
 };
 
@@ -118,7 +159,7 @@ function createDeleteCard () {
 const createDetailsCard = (projectTodoObject)=>{
   const popUpContainer = document.querySelector('.details-container');
 
-  //const exitDiv = document.createElement('div');
+  const exitDiv = document.createElement('div');
   const exitButton = document.createElement('button');
   exitButton.setAttribute('type', 'button');
   exitButton.setAttribute('id', 'exit-details');
@@ -152,6 +193,15 @@ const createDetailsCard = (projectTodoObject)=>{
   todoDueDate.innerText = projectTodoObject.dueDate;
 
   dueDateDiv.appendChild(todoDueDate);
+
+  const priorityDiv = document.createElement('div');
+  
+  popUpContainer.appendChild(priorityDiv);
+
+  const todoPriority = document.createElement('p');
+  todoPriority.innerText = projectTodoObject.priority;
+
+  priorityDiv.appendChild(todoPriority)
 
   console.log(projectTodoObject.dueDate)
 

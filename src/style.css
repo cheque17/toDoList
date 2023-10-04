@@ -266,6 +266,7 @@ footer {
 
 .collecter-container div:last-child {
 	justify-content: center;
+	margin-top: 1vh;
 }
 
 .collecter-container div button,
