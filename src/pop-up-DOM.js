@@ -122,6 +122,7 @@ const createDetailsCard = (projectTodoObject)=>{
   const exitButton = document.createElement('button');
   exitButton.setAttribute('type', 'button');
   exitButton.setAttribute('id', 'exit-details');
+  exitButton.innerText = 'x';
 
   popUpContainer.appendChild(exitButton);
 
