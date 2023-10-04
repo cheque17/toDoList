@@ -2,16 +2,16 @@ const createProject = (function(projectName, description) {
 
   const creationDate = new Date();
 
-  const _tasks = []
+  const tasks = []
 
   const addTask = (title, description, dueDate, priority)=> {
-    _tasks.push(createToDo(title, description, dueDate, priority))
+    tasks.push(createToDo(title, description, dueDate, priority))
   }
 
-  const getTasks = () => _tasks;
+  const getTasks = () => tasks;
 
 
-  return {projectName, description, creationDate, addTask, getTasks}
+  return {projectName, description, creationDate, addTask, getTasks, tasks}
 });
 
 

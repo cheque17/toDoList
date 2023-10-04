@@ -4,13 +4,14 @@ const createPopUpFrame = (use)=>{
   const popUpContainer = document.createElement('div');
   if(use === 'collecter'){
     popUpContainer.setAttribute('class', 'collecter-container');
-  } else {
+  } else if (use === 'delete-confirmation') {
     popUpContainer.setAttribute('class', 'delete-card-container');
-  }  
+  } else {
+    popUpContainer.setAttribute('class','details-container');
+  }
 
   body.appendChild(popUpContainer)
-}
-
+};
 
 
 const createInfoRetriever = (infoRequested, inputId, inputType = 'text')=>{
@@ -33,7 +34,7 @@ const createInfoRetriever = (infoRequested, inputId, inputType = 'text')=>{
   questionContainer.appendChild(question);
   questionContainer.appendChild(answerInput)
   container.appendChild(questionContainer)
-}
+};
 
 const createButton = function(buttonText, id) {
   const container = document.querySelector('.collecter-container');
@@ -47,7 +48,7 @@ const createButton = function(buttonText, id) {
   buttonDiv.appendChild(neededButton);
   container.appendChild(buttonDiv);
 
-}
+};
 
 
 function createAddProjectCard () {
@@ -56,7 +57,7 @@ function createAddProjectCard () {
   createInfoRetriever('Name:', 'new-pr-name');
   createInfoRetriever('Description:', 'new-pr-description')
   createButton('Submit', 'submit-project')
-}
+};
 
 function createAddTodoCard () {
   createPopUpFrame('collecter');
@@ -66,7 +67,7 @@ function createAddTodoCard () {
   createInfoRetriever('Due Date', 'new-task-date', 'date');
   createInfoRetriever('Priority', 'new-task-priority')
   createButton('Submit', 'submit-todo')
-}
+};
 
 const createDeletePopUpContent = (deleteTarget)=> {
   const container = document.querySelector('.delete-card-container');
@@ -107,11 +108,57 @@ const createDeletePopUpContent = (deleteTarget)=> {
   continueButton.innerText = 'Continue';
 
   decisionButtonsContainer.appendChild(continueButton);
-}
+};
 
 function createDeleteCard () {
-  createPopUpFrame('delete confirmation');
+  createPopUpFrame('delete-confirmation');
   createDeletePopUpContent('project');
 };
 
-export {createAddProjectCard, createAddTodoCard, createDeleteCard}
+const createDetailsCard = (projectTodoObject)=>{
+  const popUpContainer = document.querySelector('.details-container');
+
+  //const exitDiv = document.createElement('div');
+  const exitButton = document.createElement('button');
+  exitButton.setAttribute('type', 'button');
+  exitButton.setAttribute('id', 'exit-details');
+
+  popUpContainer.appendChild(exitButton);
+
+  const titleDiv = document.createElement('div');
+  
+  popUpContainer.appendChild(titleDiv);
+
+  const todoTitle = document.createElement('h3');
+  todoTitle.innerText = projectTodoObject.title;
+
+  titleDiv.appendChild(todoTitle);
+
+  const descriptionDiv = document.createElement('div');
+
+  popUpContainer.appendChild(descriptionDiv);
+
+  const description = document.createElement('p');
+  description.innerText = projectTodoObject.description;
+
+  descriptionDiv.appendChild(description);
+
+  const dueDateDiv = document.createElement('div');
+
+  popUpContainer.appendChild(dueDateDiv);
+
+  const todoDueDate = document.createElement('p');
+  todoDueDate.innerText = projectTodoObject.dueDate;
+
+  dueDateDiv.appendChild(todoDueDate);
+
+  console.log(projectTodoObject.dueDate)
+
+};
+
+function showFullTodoDetails (projectTodoObject) {
+  createPopUpFrame('details');
+  createDetailsCard(projectTodoObject);
+};
+
+export {createAddProjectCard, createAddTodoCard, createDeleteCard, showFullTodoDetails}

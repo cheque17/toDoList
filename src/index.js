@@ -2,7 +2,7 @@ import './style.css'
 import './toDoCreation'
 import {createProject} from './toDoCreation'
 import { createFullSideBar, createFullProjectDisplay, detachElement, updateSidebarList, updateTodoList } from './DOM-manipulation';
-import { createAddProjectCard, createAddTodoCard, createDeleteCard } from './pop-up-DOM';
+import { createAddProjectCard, createAddTodoCard, createDeleteCard, showFullTodoDetails } from './pop-up-DOM';
 
 
 const projects = [];
@@ -130,6 +130,10 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
 document.querySelector('.general-content').addEventListener('click', (e)=> {
   if (e.target.className === 'expand-button'){
     let taskNumber = e.target.id.slice(-1);
-    console.log(projects[projectShown].getTasks()[taskNumber]);
+    //projects[projectShown].getTasks()[taskNumber].title = 'Do nothing';
+    showFullTodoDetails(projects[projectShown].getTasks()[taskNumber]);
+    //console.log(projects[projectShown].getTasks()[0])
+    //console.log(projects[0].getTasks())
+    
   }
 });

@@ -160,18 +160,11 @@ function createTodoDisplay (tasksArray) {
 
     taskContainer.appendChild(nameDescriptionContainer);
 
-    let todoTitle = document.createElement('h3');
+    let todoTitle = document.createElement('p');
     todoTitle.setAttribute('class', 'todo-title');
     todoTitle.innerText = tasksArray[i].title;
 
     nameDescriptionContainer.appendChild(todoTitle);
-/*
-    let todoDescription = document.createElement('p');
-    todoDescription.setAttribute('class', 'todo-description');
-    todoDescription.innerText = tasksArray[i].description;
-
-    taskContainer.appendChild(todoDescription);
-*/
 
     let todoDueDate = document.createElement('p');
     todoDueDate.setAttribute('class', 'todo-duedate');
