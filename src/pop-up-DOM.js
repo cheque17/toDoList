@@ -67,45 +67,10 @@ const createPrioritySelector = (mainContainerSelector = '.collecter-container')=
   selectMenu.appendChild(option1);
   selectMenu.appendChild(option2);
   selectMenu.appendChild(option3);
-
-  /*const fieldset = document.createElement('fieldset');
-  const genericDiv = document.createElement('div');
-  const legend = document.createElement('legend');
-  legend.innerText = 'Priority:'
-
-  fieldset.appendChild(legend);
-  fieldset.appendChild(genericDiv);
-  container.appendChild(fieldset);
-
-  const inputOne = document.createElement('input');
-  inputOne.setAttribute('type', 'radio');
-  inputOne.setAttribute('id', 'low-priority');
-  inputOne.setAttribute('value','low');
-  inputOne.setAttribute('name', 'priority-level');
-
-  const labelOne = document.createElement('label');
-  labelOne.setAttribute('for', 'low-priority');
-  labelOne.innerText = 'Low';
-
-  const inputTwo = document.createElement('input')
-  inputTwo.setAttribute('type', 'radio');
-  inputTwo.setAttribute('id', 'high-priority');
-  inputTwo.setAttribute('value','high');
-  inputTwo.setAttribute('name', 'priority-level');
-
-  const labelTwo = document.createElement('label');
-  labelTwo.setAttribute('for', 'high-priority');
-  labelTwo.innerText = 'High'; 
-
-  genericDiv.appendChild(inputOne);
-  genericDiv.appendChild(labelOne);
-  genericDiv.appendChild(inputTwo);
-  genericDiv.appendChild(labelTwo);*/
-
 };
 
-const createButton = function(buttonText, id) {
-  const container = document.querySelector('.collecter-container');
+const createButton = function(buttonText, id, containerSelector = '.collecter-container') {
+  const container = document.querySelector(containerSelector);
   const buttonDiv = document.createElement('div');
 
   const neededButton = document.createElement('button');
@@ -236,10 +201,19 @@ const createDetailsCard = (projectTodoObject)=>{
 
 function showFullTodoDetails (projectTodoObject) {
   createPopUpFrame('details');
+  createButton('x', 'exit-details', '.details-container')
   createInfoRetriever('Title:','new-task-title', '.details-container');
   createInfoRetriever('Description:', 'new-task-description', '.details-container');
   createInfoRetriever('Due Date:', 'new-task-date', '.details-container', 'date');
   createPrioritySelector('.details-container');
+
+  const buttonsDiv = document.createElement('div');
+  buttonsDiv.setAttribute('class', 'buttons-div-container');
+
+  document.querySelector('.details-container').appendChild(buttonsDiv);
+
+  createButton('Delete', 'delete-todo', '.buttons-div-container');
+  createButton('Edit', 'edit-todo', '.buttons-div-container');
 
   const nameValue = document.querySelector('#new-task-title');
   nameValue.value = projectTodoObject.title;
@@ -260,10 +234,6 @@ function showFullTodoDetails (projectTodoObject) {
   }
 
   
-  console.log(priorityOptions);
-  console.log(projectTodoObject)
-
-  //createDetailsCard(projectTodoObject);
 };
 
 export {createAddProjectCard, createAddTodoCard, createDeleteCard, showFullTodoDetails}

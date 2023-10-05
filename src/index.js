@@ -119,7 +119,6 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
       detachElement('#test', '.collecter-container');
       popUpDisplayed = 0;
       updateTodoList(previousTodoNumber, projects[projectShown].getTasks());
-      console.log(projects)
     } else {
       alert('All the fields should be filled for a todo to be added.')
     }
@@ -128,10 +127,28 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
 
 //This event triggers the expand buttons
 
+let todoIndex;
+
 document.querySelector('.general-content').addEventListener('click', (e)=> {
-  if (e.target.className === 'expand-button'){
-    let taskNumber = e.target.id.slice(-1);
-    showFullTodoDetails(projects[projectShown].getTasks()[taskNumber]);
+  if (popUpDisplayed){
+    return
+  } else if (e.target.className === 'expand-button'){
+    todoIndex = e.target.id.slice(-1);
+    showFullTodoDetails(projects[projectShown].getTasks()[todoIndex]);
+    popUpDisplayed= 1;
+  }
+});
+
+document.getElementsByTagName('body')[0].addEventListener('click', (e)=>{
+  if (e.target.id === 'exit-details'){
+    detachElement('#test', '.details-container');
+    popUpDisplayed = 0;
+  } else if (e.target.id === 'delete-todo') {
+    const previousTodoNumber = projects[projectShown].getTasks().length;
+    projects[projectShown].tasks.splice(todoIndex, 1);
+    detachElement('#test', '.details-container');
+    popUpDisplayed = 0;
+    updateTodoList(previousTodoNumber, projects[projectShown].getTasks())
   }
 });
 
