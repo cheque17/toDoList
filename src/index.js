@@ -17,10 +17,10 @@ addProject('Default project', 'This is just a random description to get things w
 addProject('Extra Test', 'From the moment I understood the weakness of my flesh it disgusted me. I craved the strenght and certainty of steel. Aspired to the purity of the blessed machine. ')
 addProject('Third project', 'your kind cling to your flesh as though it will not decay and wither. One day the crude biomass you call the temple will fail you. And you will beg my kind to save you, but I\'m already saved. For the blessed machine is inmortal. Even im death I serve the great omnisia');
 
-projects[0].addTask('Do laundry', "Wash my drawers and socks ASAP", '19/10/2023', 'high');
-projects[0].addTask('Do the cooking', "Cook an ommelet", '19/10/2023', 'high')
-projects[1].addTask('Clean my room', 'Fold my clothes, clean pc, take out trash', '21/4/24', 'low');
-projects[2].addTask('Third stuff to do', 'Fold my clothes, clean pc, take out trash', '21/4/24', 'low');
+projects[0].addTask('Do laundry', "Wash my drawers and socks ASAP", '2023-10-19', 'high');
+projects[0].addTask('Do the cooking', "Cook an ommelet", '2023-10-19', 'high')
+projects[1].addTask('Clean my room', 'Fold my clothes, clean pc, take out trash', '2024-04-21', 'low');
+projects[2].addTask('Third stuff to do', 'Fold my clothes, clean pc, take out trash', '24-4-21', 'low');
 
 
 createFullSideBar(projects);
@@ -112,17 +112,16 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
     let todoName = document.querySelector('#new-task-title');
     let todoDx = document.querySelector('#new-task-description');
     let todoDate = document.querySelector('#new-task-date');
-    let todoPriority = document.getElementsByName('priority-level');
-    let priorityValue = Array.from(todoPriority).find(radio => radio.checked);
-    if (todoName.value && todoDx.value && todoDate.value){
+    let todoPriority = document.querySelector('#dropdown');
+    if (todoName.value && todoDx.value && todoDate.value && todoPriority.value){
       const previousTodoNumber = projects[projectShown].getTasks().length;
-      projects[projectShown].addTask(todoName.value, todoDx.value, todoDate.value, priorityValue.value);
+      projects[projectShown].addTask(todoName.value, todoDx.value, todoDate.value, todoPriority.value);
       detachElement('#test', '.collecter-container');
       popUpDisplayed = 0;
       updateTodoList(previousTodoNumber, projects[projectShown].getTasks());
-      console.log(projects[projectShown].getTasks())
+      console.log(projects)
     } else {
-      alert('Title, description and date should be filled for a todo to be added.')
+      alert('All the fields should be filled for a todo to be added.')
     }
   }
 });
@@ -132,10 +131,8 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=> {
 document.querySelector('.general-content').addEventListener('click', (e)=> {
   if (e.target.className === 'expand-button'){
     let taskNumber = e.target.id.slice(-1);
-    //projects[projectShown].getTasks()[taskNumber].title = 'Do nothing';
     showFullTodoDetails(projects[projectShown].getTasks()[taskNumber]);
-    //console.log(projects[projectShown].getTasks()[0])
-    //console.log(projects[0].getTasks())
-    
   }
 });
+
+
