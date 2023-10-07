@@ -1,7 +1,5 @@
 const createProject = (function(projectName, description) {
 
-  const creationDate = new Date();
-
   const tasks = []
 
   const addTask = (title, description, dueDate, priority)=> {
@@ -11,7 +9,7 @@ const createProject = (function(projectName, description) {
   const getTasks = () => tasks;
 
 
-  return {projectName, description, creationDate, addTask, getTasks, tasks}
+  return {projectName, description, addTask, getTasks, tasks}
 });
 
 
