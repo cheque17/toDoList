@@ -4,6 +4,11 @@ import {createProject} from './toDoCreation'
 import { createFullSideBar, createFullProjectDisplay, detachElement, updateSidebarList, updateTodoList } from './DOM-manipulation';
 import { createAddProjectCard, createAddTodoCard, createDeleteCard, showFullTodoDetails } from './pop-up-DOM';
 
+if (!localStorage.getItem('localProjects')){
+  console.log('There\'s nothing here')
+} else {
+  console.log('Yes, boss. We got it')
+}
 
 const projects = [];
  
@@ -17,10 +22,18 @@ addProject('Default project', 'This is just a random description to get things w
 addProject('Extra Test', 'From the moment I understood the weakness of my flesh it disgusted me. I craved the strenght and certainty of steel. Aspired to the purity of the blessed machine. ')
 addProject('Third project', 'your kind cling to your flesh as though it will not decay and wither. One day the crude biomass you call the temple will fail you. And you will beg my kind to save you, but I\'m already saved. For the blessed machine is inmortal. Even im death I serve the great omnisia');
 
+
+ 
+
+
+
 projects[0].addTask('Do laundry', "Wash my drawers and socks ASAP", '2023-10-19', 'high');
 projects[0].addTask('Do the cooking', "Cook an ommelet", '2023-10-19', 'high')
 projects[1].addTask('Clean my room', 'Fold my clothes, clean pc, take out trash', '2024-04-21', 'low');
 projects[2].addTask('Third stuff to do', 'Fold my clothes, clean pc, take out trash', '24-4-21', 'low');
+
+localStorage.setItem('localProjects', JSON.stringify(projects));
+console.log(JSON.parse(localStorage.getItem('localProjects')))
 
 
 createFullSideBar(projects);
