@@ -149,6 +149,19 @@ document.getElementsByTagName('body')[0].addEventListener('click', (e)=>{
     detachElement('#test', '.details-container');
     popUpDisplayed = 0;
     updateTodoList(previousTodoNumber, projects[projectShown].getTasks())
+  } else if (e.target.id === 'edit-todo'){
+    const previousTodoNumber = projects[projectShown].getTasks().length;
+    let todoName = document.querySelector('#new-task-title');
+    let todoDx = document.querySelector('#new-task-description');
+    let todoDate = document.querySelector('#new-task-date');
+    let todoPriority = document.querySelector('#dropdown');
+    projects[projectShown].tasks[todoIndex].title = todoName.value;
+    projects[projectShown].tasks[todoIndex].description = todoDx.value;
+    projects[projectShown].tasks[todoIndex].dueDate = todoDate.value;
+    projects[projectShown].tasks[todoIndex].priority = todoPriority.value;
+    detachElement('#test', '.details-container');
+    popUpDisplayed = 0;
+    updateTodoList(previousTodoNumber, projects[projectShown].getTasks());
   }
 });
 

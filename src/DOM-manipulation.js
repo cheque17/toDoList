@@ -40,13 +40,8 @@ function displayProjects (projectsArray) {
     projectTitle.setAttribute('class', 'project-name');
     projectTitle.textContent = projectsArray[i].projectName;
 
-    const myOptIcon = new Image();
-    myOptIcon.setAttribute('class', 'options-icon');
-    myOptIcon.src = Option;
-
     project.appendChild(myProjIcon);
     project.appendChild(projectTitle);
-    project.appendChild(myOptIcon);
     list.appendChild(project);
   }
 };

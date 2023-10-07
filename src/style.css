@@ -83,7 +83,7 @@ header {
 ul li {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-start;
 }
 
 ul li:nth-child(n+2) {
@@ -95,6 +95,7 @@ ul li .options-icon {
 	height: 3vh;
 	width: 3vh;
 	object-fit: cover;
+	margin-right: 1vh;
 }
 
 ul li .project-name,

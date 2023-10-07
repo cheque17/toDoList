@@ -148,57 +148,6 @@ function createDeleteCard () {
   createDeletePopUpContent('project');
 };
 
-const createDetailsCard = (projectTodoObject)=>{
-  const popUpContainer = document.querySelector('.details-container');
-
-  const exitDiv = document.createElement('div');
-  const exitButton = document.createElement('button');
-  exitButton.setAttribute('type', 'button');
-  exitButton.setAttribute('id', 'exit-details');
-  exitButton.innerText = 'x';
-
-  popUpContainer.appendChild(exitButton);
-
-  const titleDiv = document.createElement('div');
-  
-  popUpContainer.appendChild(titleDiv);
-
-  const todoTitle = document.createElement('h3');
-  todoTitle.innerText = projectTodoObject.title;
-
-  titleDiv.appendChild(todoTitle);
-
-  const descriptionDiv = document.createElement('div');
-
-  popUpContainer.appendChild(descriptionDiv);
-
-  const description = document.createElement('p');
-  description.innerText = projectTodoObject.description;
-
-  descriptionDiv.appendChild(description);
-
-  const dueDateDiv = document.createElement('div');
-
-  popUpContainer.appendChild(dueDateDiv);
-
-  const todoDueDate = document.createElement('p');
-  todoDueDate.innerText = projectTodoObject.dueDate;
-
-  dueDateDiv.appendChild(todoDueDate);
-
-  const priorityDiv = document.createElement('div');
-  
-  popUpContainer.appendChild(priorityDiv);
-
-  const todoPriority = document.createElement('p');
-  todoPriority.innerText = projectTodoObject.priority;
-
-  priorityDiv.appendChild(todoPriority)
-
-  console.log(projectTodoObject.dueDate)
-
-};
-
 function showFullTodoDetails (projectTodoObject) {
   createPopUpFrame('details');
   createButton('x', 'exit-details', '.details-container')
