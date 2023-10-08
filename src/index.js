@@ -11,15 +11,12 @@ const addProject = (name, description) =>{
 }
 
 if (!localStorage.getItem('localProjectsStorage')){
-  console.log('There\'s nothing here, but we will add something')
-  addProject('Default project', 'This is just a random description to get things working and so on. Typing more rubbish to get a longer description. So let\' keep typing abit more just because, I don\'t want to have a small description. Lalalalala, lalalalala.');
-  addProject('Extra Test', 'From the moment I understood the weakness of my flesh it disgusted me. I craved the strenght and certainty of steel. Aspired to the purity of the blessed machine. ')
-  addProject('Third project', 'your kind cling to your flesh as though it will not decay and wither. One day the crude biomass you call the temple will fail you. And you will beg my kind to save you, but I\'m already saved. For the blessed machine is inmortal. Even im death I serve the great omnisia');
+  addProject('Personal Tasks', 'This is a space where you can save all your personal and most important todo\'s. It can be practicing a new language, working out, organizing a party, fixing your motorcycle, anything. This is a good place to start if you don\'t have a "Big Project" currently but you still want to hold yourself accountable for certain tasks or just keep this as a reminder. It\'s your choice.');
+  addProject('Tasks assigned', 'This space is for tasks that have been assigned to you by other people. It can be for something related to work, school, a favour that someone ask you to do and you accepted. Any task that you wouldn\'t do if someone else hadn\'t asked you to do.')
 
-  projects[0].addTask('Do laundry', "Wash my drawers and socks ASAP", '2023-10-19', 'high');
-  projects[0].addTask('Do the cooking', "Cook an ommelet", '2023-10-19', 'high')
-  projects[1].addTask('Clean my room', 'Fold my clothes, clean pc, take out trash', '2024-04-21', 'low');
-  projects[2].addTask('Third stuff to do', 'Fold my clothes, clean pc, take out trash', '2024-04-21', 'low');
+  projects[0].addTask('Call my grandma', "Check on the old lady and ask how is she doing.", '2023-10-19', 'high');
+  projects[0].addTask('Go to the gym and try getting 15 pull-ups', "Make sure to warm up properly to avoid injuries and get some chalk to help with the grip", '2023-10-19', 'high')
+  projects[0].addTask('Clean the mess in my room.', 'Fold my clothes, clean pc, take out trash', '2024-04-21', 'medium');
 
   localStorage.setItem('localProjectsStorage', JSON.stringify(projects))
 } else {
@@ -35,23 +32,12 @@ if (!localStorage.getItem('localProjectsStorage')){
         )
     }
   }
-  console.log('Yes, boss. We got it');
 }
-
- 
-
-//Projects created just for testing
-
-
-
-localStorage.removeItem('localProjectsStorage')
 
 function updateLocallyStoredProjects () {
   localStorage.setItem('localProjectsStorage', JSON.stringify(projects));
 };
 
-
-//localStorage.setItem('localProjects', JSON.stringify(projects));
 
 
 createFullSideBar(projects);

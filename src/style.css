@@ -46,7 +46,7 @@ header {
 	box-sizing: border-box;
 	padding-left: 3vh;
 	font-size: 5vh;
-	background-color: aquamarine;
+	background-color: #D2E0FB;
 }
 
 .general-content {
@@ -57,7 +57,7 @@ header {
 }
 
 .general-content .sidebar{
-	background: rgb(129, 209, 255);
+	background: #F9F3CC;
 	width: 15vw;
 	height: 100%;
 	padding: 3vh 0 0 4vh;
@@ -127,7 +127,7 @@ ul li .project-name,
 .general-content .project-container {
 	height: 100%;
 	width: 100%;
-	background-color: rgb(191, 199, 120);
+	background-color: #D7E5CA;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -186,7 +186,7 @@ ul li .project-name,
 
 footer {
 	height: 5vh;
-	background-color: blanchedalmond;
+	background-color: #8EACCD;
 	display: flex;
 	justify-content: center;
 	align-items: center;
