@@ -1,5 +1,4 @@
 import Icon from './menu.png';
-import Option from './more.png';
 import Add from './add.png';
 import Delete from './delete.png';
 
