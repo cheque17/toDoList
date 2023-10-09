@@ -223,12 +223,6 @@ footer {
 	margin-top: 2vh;
 }
 
-/*.details-container div:nth-child(2){
-	justify-content: center;
-	font-size: 3vh;
-	border-bottom: solid black 1px;
-}*/
-
 .delete-card-container p:first-child {
 	font-weight: 600;
 	font-size: 3vh;
